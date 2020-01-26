@@ -1,13 +1,52 @@
+# Lambda Lab Deep Learning Benchmarks
+
+Lambda Labs published a series of blogs at https://lambdalabs.com/blog which calculate training performance of a number of Tensorflow models by calculating the number of images per second processed. The following models are tested: 
+
+| model | input size | param mem | feat. mem | flops  |
+|-------|------------|--------------|----------------|-------------|
+| resnet-50 | 224 x 224 | 98 MB | 103 MB | 4 BFLOPs |
+| resnet-152 | 224 x 224 | 230 MB | 219 MB | 11 BFLOPs |
+| inception-v3 | 299 x 299 | 91 MB | 89 MB | 6 BFLOPs |
+| vgg-vd-19 | 224 x 224 | 548 MB | 63 MB | 20 BFLOPs |
+| alexnet | 227 x 227 | 233 MB | 3 MB | 1.5 BFLOPs |
+| ssd-300 | 300 x 300 | 100 MB | 116 MB | 31 GFLOPS |
+
+This is the write-up to try out the Lambda Labs Deep Learning benchmarks on the MIT Satorti system:
+
+https://mit-satori.github.io 
+
+# To deploy on Satori do the following:
+
+1. Get access to Satori following  instructions in the [Satori Documentation](https://mit-satori.github.io/satori-basics.html)
+2. Point your browse to the [Satori Open On-Demand (OOD)  portal](https://satori-portal.mit.edu/pun/sys/dashboard)
+3. On the top menu bar got to **Clusters -> Satori Shell Access** 
+4. In the  shell get the test repo by typing  **git clone https://github.com/clarisseth/lambda-tensorflow-benchmark/**
+5. Once the git clone is done, go back to the OOD Dashboad window (labeld **My Interactive Sessions**) and go to menu option **Interactive Apps -> Jupyter Notebook**
+6. Choose the **Anaconda.10 PowerAI [experimental]** module from the menu and click the **Launch** button to fire off a Jupyterlab session
+7. Click the on **Host** node name button when it appears in a few moments.  This opens a terminal on the node.
+8. Follow the instructions to activate your environment for the first time <WIP>
+9. Find the git repo directory (**lambda-tensorflow-benchmark**) you downloaded in step 4. 
+10. Edit run.sh for the number of iterations and GPUs and run the command **./run.sh**
+11. Output will be the number of runs completed (28 x number of iterations) and the geometric mean of the results (images/sec). Detailed results will appear in the ./lambda-tensorflow-benchmark *.logs sub-directory 
+
+
+The instructions above was tested in the interactive MIT Satori Environment:
+
+- Red Hat version: 7.6
+- WML-CE version: 1.6.2
+- TensorFlow version: 1.15
+- CUDA Version 10.1
+- CUDNN Version 7.6.0.3
+
+The **./collect_sys_info.sh** is a handy script to keep track of your environment. Good Luck!
+
+
+# Additional details of what run.sh does:
 
 This is the code used for a few of the blog posts on: https://lambdalabs.com/blog including:
 
 - 2080 Ti Deep Learning Benchmarks: https://lambdalabs.com/blog/2080-ti-deep-learning-benchmarks/
 
-Environment:
-- OS: Ubuntu 18.04
-- TensorFlow version: 1.11.0-rc1
-- CUDA Version 10.0
-- CUDNN Version 7.3.0
 
 <!-- #### Step One: Download mini imagenet data (1.5 GB)
 
