@@ -20,24 +20,16 @@ https://mit-satori.github.io
 1. Get access to Satori following  instructions in the [Satori Documentation](https://mit-satori.github.io/satori-basics.html)
 2. Point your browse to the [Satori Open On-Demand (OOD)  portal](https://satori-portal.mit.edu/pun/sys/dashboard)
 3. On the top menu bar got to **Clusters -> Satori Shell Access** 
-4. In the  shell get the test repo by typing: 
+4. In the  shell get the test repo by typing:   
 ``` git clone https://github.com/clarisseth/lambda-tensorflow-benchmark.git --recursive ```
 5. Once the git clone is done, go back to the OOD Dashboad window (labeld **My Interactive Sessions**) and go to menu option **Interactive Apps -> Jupyter Notebook**
 6. Choose the **Anaconda.10 PowerAI [experimental]** module from the menu and click the **Launch** button to fire off a Jupyterlab session
 7. Click the on **Host** node name button when it appears in a few moments.  This opens a terminal on the node.
 8. If needed, Follow the instructions (https://mit-satori.github.io/satori-ai-frameworks.html) to activate your WML-CE environment for the first time or if not automated
 9. Find the git repo directory (**lambda-tensorflow-benchmark**) you downloaded in step 4. 
-10. Edit run.sh for the number of iterations (1 iteration can take an hour) and GPUs (up to 4) and run the command: 
+10. Edit run.sh for the number of iterations (1 iteration can take an hour) and GPUs (up to 4) and run the command:   
   ```./run.sh```
 11. Output will be the number of runs completed and the geometric mean of the results (images/sec) from the *.log file. Detailed result of the runs will appear in the ./lambda-tensorflow-benchmark/POWER9-*.logs sub-directory 
-
-The models that are run in these all inclusive scripts are actually the standard TensorFlow benchmarks found at https://github.com/tensorflow/benchmarks/tree/master/scripts/tf_cnn_benchmarks
-You can also find them and more in your active WML-CE environment on Satori. For e.g.
-
-```
- cd ./$HOME2/anaconda3/envs/wmlce-1.6.2/tf_cnn_benchmarks/
- python tf_cnn_benchmarks.py --help
-```
 
 Each of the seven models in the Lambda Labs test suite is run with precision (FP32 and FP16), and with two weight update setting (variable_update=parameter_server and replicated) for a total of 28 results per iteration.
 
@@ -50,10 +42,13 @@ The instructions above was tested in the interactive MIT Satori Environment:
 - CUDA Version 10.1
 - CUDNN Version 7.6.0.3
 
-The **./collect_sys_info.sh**  included here is a handy script to keep track of your environment. Good Luck!
+Included here is a handy script to keep track of your environment:  
+``` ./collect_sys_info.sh  ```
+
+**Good Luck!**
 
 
-# Additional details of what run.sh does:
+# Additional details of run steps:
 
 This is the code used for a few of the blog posts on: https://lambdalabs.com/blog including:
 
@@ -68,7 +63,7 @@ This is the code used for a few of the blog posts on: https://lambdalabs.com/blo
 curl https://s3-us-west-2.amazonaws.com/lambdalabs-files/imagenet_mini.tar.gz | tar xvz -C ~/data)
 ``` -->
 
-#### Step One: Clone benchmark repo
+#### Step One: Clone benchmark repo (Not needed, done in step 4 above)
 
 
 ```
@@ -90,3 +85,14 @@ cd lambda-tensorflow-benchmark
 ```
 ./report.sh <cpu>-<gpu>.logs num_iterations gpu_indices
 ```
+
+_Note: The models that are run in these all inclusive scripts are actually the standard TensorFlow benchmarks found at https://github.com/tensorflow/benchmarks/tree/master/scripts/tf_cnn_benchmarks
+You can also find them and more in your active WML-CE environment on Satori. For e.g._
+
+```
+ cd ./$HOME2/anaconda3/envs/wmlce-1.6.2/tf_cnn_benchmarks/
+ python tf_cnn_benchmarks.py --help
+```  
+_tf_cnn_benchmarks is no longer maintained. Although it will run with TensorFlow 2, it was written and optimized for TensorFlow 1, and has not been maintained since TensorFlow 2 was released. For clean and easy-to-read TensorFlow 2 models, please see the TensorFlow Official Models._
+
+
