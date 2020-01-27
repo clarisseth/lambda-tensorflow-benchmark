@@ -25,9 +25,9 @@ https://mit-satori.github.io
 5. Once the git clone is done, go back to the OOD Dashboad window (labeld **My Interactive Sessions**) and go to menu option **Interactive Apps -> Jupyter Notebook**
 6. Choose the **Anaconda.10 PowerAI [experimental]** module from the menu and click the **Launch** button to fire off a Jupyterlab session
 7. Click the on **Host** node name button when it appears in a few moments.  This opens a terminal on the node.
-8. Follow the instructions to activate your environment for the first time <WIP>
+8. If needed, Follow the instructions (https://mit-satori.github.io/satori-ai-frameworks.html) to activate your WML-CE environment for the first time or if not automatef
 9. Find the git repo directory (**lambda-tensorflow-benchmark**) you downloaded in step 4. 
-10. Edit run.sh for the number of iterations and GPUs and run the command: 
+10. Edit run.sh for the number of iterations (1 iteration can take an hour) and GPUs (up to 4) and run the command: 
   ```./run.sh```
 11. Output will be the number of runs completed and the geometric mean of the results (images/sec) from the *.log file. Detailed result of the runs will appear in the ./lambda-tensorflow-benchmark/POWER9-*.logs sub-directory 
 
