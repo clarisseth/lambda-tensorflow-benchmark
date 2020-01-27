@@ -1,6 +1,6 @@
 # Lambda Lab Deep Learning Benchmarks
 
-Lambda Labs published a series of blogs at https://lambdalabs.com/blog which calculate training performance of a number of Tensorflow models by calculating the number of images per second processed. The following models are tested: 
+Lambda Labs published a series of blogs at https://lambdalabs.com/blog which calculate training performance of a number of TensorFlow models by calculating the number of images per second processed. The following models are tested: 
 
 | model | input size | param mem | feat. mem | flops  |
 |-------|------------|--------------|----------------|-------------|
@@ -20,14 +20,26 @@ https://mit-satori.github.io
 1. Get access to Satori following  instructions in the [Satori Documentation](https://mit-satori.github.io/satori-basics.html)
 2. Point your browse to the [Satori Open On-Demand (OOD)  portal](https://satori-portal.mit.edu/pun/sys/dashboard)
 3. On the top menu bar got to **Clusters -> Satori Shell Access** 
-4. In the  shell get the test repo by typing  **git clone https://github.com/clarisseth/lambda-tensorflow-benchmark/**
+4. In the  shell get the test repo by typing: 
+``` git clone https://github.com/clarisseth/lambda-tensorflow-benchmark.git --recursive ```
 5. Once the git clone is done, go back to the OOD Dashboad window (labeld **My Interactive Sessions**) and go to menu option **Interactive Apps -> Jupyter Notebook**
 6. Choose the **Anaconda.10 PowerAI [experimental]** module from the menu and click the **Launch** button to fire off a Jupyterlab session
 7. Click the on **Host** node name button when it appears in a few moments.  This opens a terminal on the node.
 8. Follow the instructions to activate your environment for the first time <WIP>
 9. Find the git repo directory (**lambda-tensorflow-benchmark**) you downloaded in step 4. 
-10. Edit run.sh for the number of iterations and GPUs and run the command **./run.sh**
-11. Output will be the number of runs completed (28 x number of iterations) and the geometric mean of the results (images/sec). Detailed results will appear in the ./lambda-tensorflow-benchmark *.logs sub-directory 
+10. Edit run.sh for the number of iterations and GPUs and run the command: 
+  ```./run.sh```
+11. Output will be the number of runs completed and the geometric mean of the results (images/sec) from the *.log file. Detailed result of the runs will appear in the ./lambda-tensorflow-benchmark/POWER9-*.logs sub-directory 
+
+The models that are run in these all inclusive scripts are actually the standard TensorFlow benchmarks found at https://github.com/tensorflow/benchmarks/tree/master/scripts/tf_cnn_benchmarks
+You can also find them and more in your active WML-CE environment on Satori. For e.g.
+
+```
+ cd ./$HOME2/anaconda3/envs/wmlce-1.6.2/tf_cnn_benchmarks/
+ python tf_cnn_benchmarks.py --help
+```
+
+Each of the seven models in the Lambda Labs test suite is run with precision (FP32 and FP16), and with two weight update setting (variable_update=parameter_server and replicated) for a total of 28 results per iteration.
 
 
 The instructions above was tested in the interactive MIT Satori Environment:
@@ -38,7 +50,7 @@ The instructions above was tested in the interactive MIT Satori Environment:
 - CUDA Version 10.1
 - CUDNN Version 7.6.0.3
 
-The **./collect_sys_info.sh** is a handy script to keep track of your environment. Good Luck!
+The **./collect_sys_info.sh**  included here is a handy script to keep track of your environment. Good Luck!
 
 
 # Additional details of what run.sh does:
