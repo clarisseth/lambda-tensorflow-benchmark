@@ -1,4 +1,4 @@
-# Lambda Lab Deep Learning Benchmarks
+# Lambda Labs Deep Learning Tensorflow Benchmarks
 
 Lambda Labs published a series of blogs at https://lambdalabs.com/blog which calculate training performance of a number of TensorFlow models by calculating the number of images per second processed. The following models are tested: 
 
@@ -94,5 +94,5 @@ You can also find them and more in your active WML-CE environment on Satori. For
  cd ./$HOME2/anaconda3/envs/wmlce-1.6.2/tf_cnn_benchmarks/
  python tf_cnn_benchmarks.py --help
 ```  
-_The tf_cnn_benchmarks repository is no longer maintained. Although it will run with TensorFlow 2, it was written and optimized for TensorFlow 1, and has not been maintained since TensorFlow 2 was released. For clean and easy-to-read TensorFlow 2 models, please see https://github.com/tensorflow/models/tree/master/official_
+_According to TensorFlow, the tf_cnn_benchmarks repository is no longer maintained. Although it will run with TensorFlow 2, it was written and optimized for TensorFlow 1, and has not been maintained since TensorFlow 2 was released. For clean and easy-to-read TensorFlow 2 models, please see https://github.com/tensorflow/models/tree/master/official_
 
