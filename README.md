@@ -93,6 +93,5 @@ You can also find them and more in your active WML-CE environment on Satori. For
  cd ./$HOME2/anaconda3/envs/wmlce-1.6.2/tf_cnn_benchmarks/
  python tf_cnn_benchmarks.py --help
 ```  
-_tf_cnn_benchmarks is no longer maintained. Although it will run with TensorFlow 2, it was written and optimized for TensorFlow 1, and has not been maintained since TensorFlow 2 was released. For clean and easy-to-read TensorFlow 2 models, please see the TensorFlow Official Models._
-
+_tf_cnn_benchmarks is no longer maintained. Although it will run with TensorFlow 2, it was written and optimized for TensorFlow 1, and has not been maintained since TensorFlow 2 was released. For clean and easy-to-read TensorFlow 2 models, please see https://github.com/tensorflow/models/tree/master/official 
 
