@@ -10,5 +10,5 @@ GPUS="0,1,2,3"
 echo "Start run with  $ITER iterations with $NUMGPU GPU(s)"
 ./benchmark.sh ${GPUS} ${ITER} > out_${ITER}pass_${NUMGPU}gpu.log 2>&1
 ./report.sh *-*.logs ${ITER} ${GPUS}
-grep 'total images' out_${ITER}pass_${GPUS}gpu.log | awk 'BEGIN{s = 0.}{s = s + log($3)}END{print NR, exp(s / NR)}
+grep 'total images' out_${ITER}pass_${NUMGPU}gpu.log | awk 'BEGIN{s = 0.}{s = s + log($3)}END{print NR, exp(s / NR)}
 echo "End run"
