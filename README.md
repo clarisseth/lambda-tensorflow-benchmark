@@ -48,7 +48,7 @@ Included here is a handy script to keep track of your environment:
 **Good Luck!**
 
 
-# Additional details of run steps:
+# Additional details of steps in run.sh (#10 above):
 
 This is the code used for a few of the blog posts on: https://lambdalabs.com/blog including:
 
@@ -63,7 +63,7 @@ This is the code used for a few of the blog posts on: https://lambdalabs.com/blo
 curl https://s3-us-west-2.amazonaws.com/lambdalabs-files/imagenet_mini.tar.gz | tar xvz -C ~/data)
 ``` -->
 
-#### Step One: Clone benchmark repo (Not needed, done in step 4 above)
+#### Step One: Clone benchmark repo (Not needed in our case, done in #4 above)
 
 
 ```
