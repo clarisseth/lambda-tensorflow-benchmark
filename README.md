@@ -20,8 +20,9 @@ https://mit-satori.github.io
 1. Get access to Satori following  instructions in the [Satori Documentation](https://mit-satori.github.io/satori-basics.html)
 2. Point your browse to the [Satori Open On-Demand (OOD)  portal](https://satori-portal.mit.edu/pun/sys/dashboard)
 3. On the top menu bar got to **Clusters -> Satori Shell Access** 
-4. In the  shell get the test repo by typing:   
-``` git clone https://github.com/clarisseth/lambda-tensorflow-benchmark.git --recursive ```
+4. In the  shell get the test repo by typing:     
+``` git clone https://github.com/clarisseth/lambda-tensorflow-benchmark.git --recursive ```   
+You may need to chmod +x run.sh and collect_sys_info.sh
 5. Once the git clone is done, go back to the OOD Dashboad window (labeld **My Interactive Sessions**) and go to menu option **Interactive Apps -> Jupyter Notebook**
 6. Choose the **Anaconda.10 PowerAI [experimental]** module from the menu and click the **Launch** button to fire off a Jupyterlab session
 7. Click the on **Host** node name button when it appears in a few moments.  This opens a terminal on the node.
